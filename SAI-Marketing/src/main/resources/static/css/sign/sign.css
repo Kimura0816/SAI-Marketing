@@ -1,0 +1,22 @@
+html,
+body {
+  height: 100%;
+}
+
+#form-header li {
+    border-color: var(--bs-gray);
+}
+#form-header .text-primary:focus {
+    border-color: var(--bs-gray);
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+}
+#form-header .text-small {
+    font-size: 85%;
+}
+#form-header .dropdown-toggle:not(:focus) {
+    outline: 0;
+}
+#form-header .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
