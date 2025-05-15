@@ -1,0 +1,15 @@
+#div-import, #div-search {
+    width: 1000px;
+}
+#grp-depositDate {
+    width: 500px;
+}
+#grp-branch {
+    width: 180px;
+}
+#grp-account {
+    width: 200px;
+}
+#grp-transfer-source {
+    width: 400px;
+}

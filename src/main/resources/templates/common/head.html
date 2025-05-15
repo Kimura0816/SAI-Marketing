@@ -1,0 +1,27 @@
+<head th:fragment="headFragment(title, auth, page)">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>[[${title}]]</title>
+    <!-- 共通CSS読み込み -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <!-- Tempus Dominus Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css" crossorigin="anonymous">
+
+    <!-- 共通JS読み込み -->
+    <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+    <!-- Popperjs -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha256-BRqBN7dYgABqtY9Hd4ynE+1slnEw+roEPFzQ7TRRfcg=" crossorigin="anonymous"></script>
+    <!-- Tempus Dominus JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js" crossorigin="anonymous"></script>
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{'/css/common.css'}" rel="stylesheet">
+    <link th:href="@{'/css/' + ${auth} + '/' + ${auth} + '.css'}" rel="stylesheet">
+    <link th:href="@{'/css/' + ${auth} + '/' + ${page} + '.css'}" rel="stylesheet">
+    <!-- Custom script for this template -->
+    <script th:src="@{'/js/rest.js'}"></script>
+    <script th:src="@{'/js/' + ${auth} + '/' + ${auth} + '.js'}"></script>
+    <script th:src="@{'/js/' + ${auth} + '/' + ${page} + '.js'}"></script>
+</head>

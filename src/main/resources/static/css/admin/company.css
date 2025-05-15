@@ -1,0 +1,30 @@
+#div-regist,
+#div-search {
+    width: 1200px;
+}
+#grp-company-cd,
+#grp-edit-company-cd {
+    width:220px;
+}
+#grp-company-nm,
+#grp-edit-company-nm  {
+    width:400px;
+}
+#grp-auth,
+#grp-edit-auth {
+    width:220px;
+}
+#grp-company-url,
+#grp-special-sales-url,
+#grp-purapori-url,
+#grp-email,
+#grp-edit-company-url,
+#grp-edit-special-sales-url,
+#grp-edit-purapori-url,
+#grp-edit-email  {
+    width:420px;
+}
+#grp-tel,
+#grp-edit-tel {
+    width:260px;
+}

@@ -1,0 +1,31 @@
+#div-regist, #div-search {
+    width: 1000px;
+}
+#grp-goods-cd {
+    width: 220px;
+}
+#grp-goods-nm {
+    width: 500px;
+}
+#grp-price {
+    width: 200px;
+}
+#grp-payment-period {
+    width: 220px;
+}
+#grp-surl,
+#grp-agreement-url,
+#grp-cooling-off-period-url{
+    width: 450px;
+}
+#grp-agreement-url {
+    width: 400px;
+}
+#grp-disp-address,
+#grp-disp-name,
+#grp-disp-age,
+#grp-disp-job,
+#grp-disp-tel,
+#grp-disp-email {
+    width: 220px;
+}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+
+<body>
+購入申込 page
+
+    <form method="post" th:action="@{/purchase/entry}" th:object="${purchaseEntryForm}">
+        <input type="hidden" th:field="*{companyCd}"/>
+        <input type="hidden" th:field="*{productCd}"/>
+        <input type="text" th:field="*{productNm}"/>
+        <input type="text" th:field="*{price}"/>
+        <input type="text" th:field="*{paymentPeriod}"/>
+        <button type="submit" class="btn btn-primary w-100 py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
+                <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2M3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1z"/>
+            </svg>
+            購入
+        </button>
+    </form>
+</body>

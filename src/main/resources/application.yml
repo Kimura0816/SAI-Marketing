@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sap
+    username: develop
+    password: passwd000
+  transaction:
+    default-timeout: 60
+
+server:
+    port: 28080
+    servlet:
+      context-path: /
+
+logging:
+    level:
+      root: info
+      jp.co.mc: debug
+      org.hibernate.SQL: debug
+      org.hibernate.type: trace
+      org.hibernate.orm.jdbc.bind: trace
+      org.hibernate.orm.jdbc.extract: trace
+      org.springframework.web.filter.CommonsRequestLoggingFilter: debug

@@ -1,0 +1,41 @@
+html,body { height: 100%;}
+main { padding: 10px;}
+button:disabled {
+    background-color: gray !important;
+    border-color: gray !important;
+    color: white !important;
+}
+.tb-body tr:hover {
+    cursor: pointer;
+    background-color: lightyellow;
+}
+.tb-body td {
+    background-color: transparent;
+}
+.card {margin: 10px;}
+.card-header {
+    background-color: darkgray;
+    color: white;
+    font-weight:bold;
+}
+
+.input-group { margin-bottom: 10px;}
+.input-group-text {
+    min-width: 90px;
+}
+input:read-only,
+textarea:read-only {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#auth-head {
+    list-style:none;
+}
+#auth-head-cd {
+}
+#auth-head-name {
+}
+#auth-head-email {
+}
+

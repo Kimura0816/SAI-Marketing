@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<svg th:replace="common/svg"></svg>
+<header id="form-header">
+    <div class="px-3 py-2 text-bg-dark border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-lg-between">
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-left my-md-0 text-small">
+                    <li>
+                        <a href="/admin" class="nav-link text-secondary">
+                            <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
+                            ホーム
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/payment" class="nav-link text-white">
+                            <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#yen"/></svg>
+                            入金管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/company" class="nav-link text-white">
+                            <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#company"/></svg>
+                            会社管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/account" class="nav-link text-white">
+                            <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#bank"/></svg>
+                            口座管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/sign-out" class="nav-link text-white">
+                            <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#lock"/></svg>
+                            サインアウト
+                        </a>
+                    </li>
+                </ul>
+                <ul id="auth-head" class="text-small">
+                    <li id="auth-head-cd" th:text="${session.authDto.companyCd}"></li>
+                    <li id="auth-head-name" th:text="${session.authDto.companyName}"></li>
+                    <li id="auth-head-email" th:text="${session.authDto.email}"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--    <div th:replace="common/message"></div>-->
+</header>
+

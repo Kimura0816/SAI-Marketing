@@ -1,0 +1,154 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/head :: headFragment(title='会社管理', auth='admin', page='company')">
+
+<body>
+
+<header th:replace="admin/admin-header"></header>
+
+<main >
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-regist-tab" data-bs-toggle="tab" data-bs-target="#nav-regist" type="button" role="tab" aria-controls="nav-regist" aria-selected="true">会社登録</button>
+            <button class="nav-link" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-search" aria-selected="false">会社検索</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-regist" role="tabpanel" aria-labelledby="nav-regist-tab" tabindex="0">
+            <div id='div-regist' class="card">
+                <div class="card-header">会社登録</div>
+                <div class="card-body">
+                    <form id="form-regist" class="row needs-validation">
+                        <div id="grp-company-cd" class="input-group">
+                            <span class="input-group-text">会社CD</span>
+                            <input id="company-cd" type="text" class="form-control" placeholder="入力不可" readonly>
+                        </div>
+                        <div id="grp-company-nm" class="input-group">
+                            <span class="input-group-text">会社名</span>
+                            <input id="company-nm" type="text" class="form-control" placeholder="株式会社みつば">
+                        </div>
+                        <div id="grp-tel" class="input-group">
+                            <span class="input-group-text">電話番号</span>
+                            <input id="tel" type="text" class="form-control" placeholder="03-0000-0000">
+                        </div>
+                        <div id="grp-auth" class="input-group">
+                            <span class="input-group-text">権限</span>
+                            <select id="auth" class="form-select">
+                                <option value="1">管理者</option>
+                                <option value="2" selected>一般</option>
+                            </select>
+                        </div>
+                        <div id="grp-company-url" class="input-group">
+                            <span class="input-group-text">企業URL</span>
+                            <input id="company-url" type="text" class="form-control" placeholder="http://aaaa.co.jp">
+                        </div>
+                        <div id="grp-special-sales-url" class="input-group">
+                            <span class="input-group-text">特商URL</span>
+                            <input id="special-sales-url" type="text" class="form-control" placeholder="http://aaaa.co.jp">
+                        </div>
+                        <div id="grp-purapori-url" class="input-group">
+                            <span class="input-group-text">プラポリURL</span>
+                            <input id="purapori-url" type="text" class="form-control" placeholder="http://aaaa.co.jp">
+                        </div>
+                        <div id="grp-email" class="input-group">
+                            <span class="input-group-text">E-メール</span>
+                            <input id="email" type="text" class="form-control" placeholder="user@aaa.jp">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button id="regist-clear" class="btn btn-outline-primary" type="button">クリア</button>
+                    <button id="regist" class="btn btn-primary" type="button">登録</button>
+                </div>
+            </div>
+
+            <div id='regist-result' class="card">
+                <div class="card-header">登録履歴</div>
+                <div class="card-body">
+                    <p>登録履歴件数：<span id="ok-cnt">0</span>件</p>
+                    <table id="tbl-regist-history" class='table table-bordered'>
+                        <thead>
+                            <tr><th>権限</th><th>ID</th><th>会社名</th><th>連絡先</th><th>E-メール</th><th>企業URL</th><th>特商URL</th><th>プラポリURL</th></tr>
+                        </thead>
+                        <tbody id="regist-body" class='tb-body'></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab" tabindex="1">
+            <div id='div-search' class="card">
+                <div class="card-header">会社検索</div>
+                <div class="card-body">
+                    <form id="form-query" class="row needs-validation">
+                        <div id="grp-edit-company-cd" class="input-group">
+                            <span class="input-group-text">会社CD</span>
+                            <input id="edit-company-cd" type="text" class="form-control" placeholder="ABC00000">
+                        </div>
+                        <div id="grp-edit-company-nm" class="input-group">
+                            <span class="input-group-text">会社名</span>
+                            <input id="edit-company-nm" type="text" class="form-control" placeholder="株式会社みつば">
+                        </div>
+                        <div id="grp-edit-tel" class="input-group">
+                            <span class="input-group-text">電話番号</span>
+                            <input id="edit-tel" type="text" class="form-control" placeholder="03-1234-5678">
+                        </div>
+                        <div id="grp-edit-auth" class="input-group">
+                            <span class="input-group-text">権限</span>
+                            <select id="edit-auth" class="form-select">
+                                <option value="" selected>未選択</option>
+                                <option value="1">管理者</option>
+                                <option value="2">一般</option>
+                            </select>
+                        </div>
+                        <div id="grp-edit-company-url" class="input-group">
+                            <span class="input-group-text">企業URL</span>
+                            <input id="edit-company-url" type="text" class="form-control" placeholder="http://aaaa.co.jp">
+                        </div>
+                        <div id="grp-edit-special-sales-url" class="input-group">
+                            <span class="input-group-text">特商URL</span>
+                            <input id="edit-special-sales-url" type="text" class="form-control" placeholder="http://aaaa.co.jp">
+                        </div>
+                        <div id="grp-edit-purapori-url" class="input-group">
+                            <span class="input-group-text">プラポリURL</span>
+                            <input id="edit-purapori-url" type="text" class="form-control" placeholder="http://aaaa.co.jp">
+                        </div>
+                        <div id="grp-edit-email" class="input-group">
+                            <span class="input-group-text">E-メール</span>
+                            <input id="edit-email" type="text" class="form-control" placeholder="user@aaa.jp">
+                        </div>
+                    </form>
+                </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <div>
+                            <button id="query-clear" class="btn btn-outline-primary" type="button">クリア</button>
+                            <button id="find" class="btn btn-primary" type="button">検索</button>
+                            <button id="edit" class="btn btn-warning" type="button">変更</button>
+                        </div>
+                        <div>
+                            <button id="delete" class="btn btn-danger" type="button">削除</button>
+                        </div>
+                    </div>
+                </div>
+                <div id='search-result' class="card">
+                    <div class="card-header">検索結果</div>
+                    <div class="card-body">
+                        <p>検索結果件数：<span id="search-cnt">0</span>件</p>
+                        <table id="tbl-query" class='table table-bordered'>
+                            <thead >
+                            <tr><th>権限</th><th>会社CD</th><th>会社名</th><th>連絡先</th><th>E-メール</th><th>企業URL</th><th>特商URL</th><th>プラポリURL</th></tr>
+                            </thead>
+                            <tbody id='query-body' class='tb-body'></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}" defer></script>
+
+</body>
+</html>

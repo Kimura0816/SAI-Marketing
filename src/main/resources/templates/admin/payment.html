@@ -1,0 +1,101 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/head :: headFragment(title='入金管理', auth='admin', page='payment')">
+
+<body>
+
+<header th:replace="admin/admin-header"></header>
+
+<main >
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-import-tab" data-bs-toggle="tab" data-bs-target="#nav-import" type="button" role="tab" aria-controls="nav-import" aria-selected="true">入金登録</button>
+            <button class="nav-link" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-search" aria-selected="false">入金検索</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-import" role="tabpanel" aria-labelledby="nav-import-tab" tabindex="0">
+            <div id='form-import' class="card">
+                <div class="card-header">入金登録</div>
+                <div class="card-body">
+                    <form id="import-payment-form" method="post" th:action="@{/import-payment}">
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="file" id="uploadFile" name="uploadFile" multiple required>
+                            <button class="btn btn-outline-primary" type="button" id="import">実行</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id='import-result-error' class="card">
+                <div class="card-header">取込結果（エラー）</div>
+                <div class="card-body">
+                    <p>エラー取込件数：<span id="ng-cnt">0</span>件</p>
+                    <div id="ng-data"></div>
+                </div>
+            </div>
+
+            <div id='import-result-ok' class="card">
+                <div class="card-header">取込結果（正常）</div>
+                <div class="card-body">
+                    <p>正常取込件数：<span id="ok-cnt">0</span>件</p>
+                    <div id="ok-data"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab" tabindex="0">
+            <div id='div-search' class="card">
+                <div class="card-header">入金検索</div>
+                <div class="card-body">
+                    <form id="search-payment-form" class="row needs-validation">
+                        <div id="grp-depositDate" class="input-group">
+                            <span class="input-group-text">入金日</span>
+                            <input id="from" type="date" class="form-control" placeholder="From">
+                            <span class="input-group-text" style="min-width:30px;">～</span>
+                            <input id="to" type="date" class="form-control" placeholder="To">
+                        </div>
+                        <div id="grp-branch" class="input-group">
+                            <span class="input-group-text">支店</span>
+                            <input id="branch" type="text" class="form-control" placeholder="支店">
+                        </div>
+                        <div id="grp-account" class="input-group">
+                            <span class="input-group-text">口座番号</span>
+                            <input id="account" type="text" class="form-control" placeholder="口座番号">
+                        </div>
+                        <div id="grp-transfer-source" class="input-group">
+                            <span class="input-group-text">振込元</span>
+                            <input id="transferSource" type="text" class="form-control" placeholder="振込元">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <div>
+                        <button id="query-clear" class="btn btn-outline-primary" type="button">クリア</button>
+                        <button id="find" class="btn btn-primary" type="button">検索</button>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+            <div id='search-result' class="card">
+                <div class="card-header">検索結果</div>
+                <div class="card-body">
+                    <p>検索結果件数：<span id="search-cnt">0</span>件</p>
+                    <table id="tbl-query" class='table table-bordered'>
+                        <thead >
+                        <tr><th>履歴番号</th><th>入金日</th><th>支店CD</th><th>口座番号</th><th>振込元</th><th>出金金額(円)</th><th>入金金額(円)</th><th>残高(円)</th><th>メモ</th></tr>
+                        </thead>
+                        <tbody id='query-body' class='tb-body'></tbody>
+                    </table>
+                    <div id="search-data"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}" defer></script>
+
+</body>
+</html>
